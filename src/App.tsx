@@ -1,35 +1,42 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
-import { Button } from '@chakra-ui/react'
+import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
+import { Template } from './components/Template' 
+import { Box, Button, Flex } from '@chakra-ui/react'
+import { HelloWorld } from './components/HelloWorld'
+import { Home } from './components/Home'
 
 function App() {
-  const [count, setCount] = useState(0)
-
   return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <Button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </Button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
+      <BrowserRouter>
+        <Box>
+          {/* ナビゲーションバー */}
+          <Flex
+            as="nav"
+            bg="blue.500"
+            p="4"
+            justify="space-around"
+            align="center"
+          >
+            <Button as={Link} to="/" colorScheme="teal" variant="ghost">
+              Home
+            </Button>
+            <Button as={Link} to="/template" colorScheme="teal" variant="ghost">
+              Template
+            </Button>
+            <Button as={Link} to="/hello" colorScheme="teal" variant="ghost">
+              Hello
+            </Button>
+          </Flex>
+
+          {/* 各ページを表示するエリア */}
+          <Box p="4">
+            <Routes>
+              <Route path="/" element={<Home />} />
+              <Route path="/template" element={<Template />} />
+              <Route path="/hello" element={<HelloWorld />} />
+            </Routes>
+          </Box>
+        </Box>
+      </BrowserRouter>
   )
 }
 
