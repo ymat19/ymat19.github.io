@@ -1,6 +1,6 @@
 import { BrowserRouter, Link, Route, Routes } from 'react-router-dom'
 import { Template } from './components/Template' 
-import { Box, Button, Flex } from '@chakra-ui/react'
+import { Box, Flex } from '@chakra-ui/react'
 import { HelloWorld } from './components/HelloWorld'
 import { Home } from './components/Home'
 
@@ -16,15 +16,15 @@ function App() {
             justify="space-around"
             align="center"
           >
-            <Button as={Link} to="/" colorScheme="teal" variant="ghost">
+            <Link to="/" color="white">
               Home
-            </Button>
-            <Button as={Link} to="/template" colorScheme="teal" variant="ghost">
+            </Link>
+            <Link to="/template" color="white">
               Template
-            </Button>
-            <Button as={Link} to="/hello" colorScheme="teal" variant="ghost">
+            </Link>
+            <Link to="/hello" color="white">
               Hello
-            </Button>
+            </Link>
           </Flex>
 
           {/* 各ページを表示するエリア */}
