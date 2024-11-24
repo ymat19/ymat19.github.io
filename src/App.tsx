@@ -3,6 +3,7 @@ import { Template } from './components/Template'
 import { Box, Flex } from '@chakra-ui/react'
 import { HelloWorld } from './components/HelloWorld'
 import { Home } from './components/Home'
+import { Counter } from './components/Counter'
 
 function App() {
   return (
@@ -25,6 +26,9 @@ function App() {
             <Link to="/hello" color="white">
               Hello
             </Link>
+            <Link to="/counter" color="white">
+              Counter
+            </Link>
           </Flex>
 
           {/* 各ページを表示するエリア */}
@@ -33,6 +37,7 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/template" element={<Template />} />
               <Route path="/hello" element={<HelloWorld />} />
+              <Route path="/counter" element={<Counter />} />
             </Routes>
           </Box>
         </Box>
