@@ -1,15 +1,20 @@
 import { Text, List, HStack } from "@chakra-ui/react";
 
-interface TodoItemProps extends List.ItemProps {
+export interface Task {
+  id: number;
   title: string;
   isCompleted: boolean;
-  onToggle?: () => void;
-  onClickDelete?: () => void;
+}
+
+
+interface TodoItemProps extends List.ItemProps {
+  task: Task;
+  onToggle: () => void;
+  onClickDelete: () => void;
 }
 
 export const TodoItem: React.FC<TodoItemProps> = ({
-  title,
-  isCompleted,
+  task,
   onToggle,
   onClickDelete,
   ...props
@@ -18,11 +23,11 @@ export const TodoItem: React.FC<TodoItemProps> = ({
     <List.Item {...props} as={HStack} >
       <HStack>
         <Text
-          textDecoration={isCompleted ? "line-through" : "none"}
+          textDecoration={task.isCompleted ? "line-through" : "none"}
           cursor="pointer"
           onClick={onToggle}
         >
-          ・{title}
+          ・{task.title}
         </Text>
         <Text color="red" cursor="pointer" onClick={onClickDelete}>
           ❌
