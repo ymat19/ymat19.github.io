@@ -1,24 +1,16 @@
 import { useState } from "react";
-import { Center, Text, VStack, List, HStack, Button } from "@chakra-ui/react";
+import { Center, Text, VStack, List, HStack } from "@chakra-ui/react";
 import { TodoItem, Task } from "./TodoItem";
+import { CreateTaskDialog } from "./CreateTaskDialog";
 
 export function TodoList() {
   const [tasks, setTasks] = useState<Task[]>([]);
-  
-  const onClickAdd = () => {
-    const newTask: Task = {
-      id: tasks.length,
-      title: "sample task",
-      isCompleted: false,
-    };
-    setTasks([...tasks, newTask]);
-  }
-  
+
   const genClickDelete = (id: number) => {
     return () => {
       setTasks(tasks.filter((task) => task.id !== id));
-    }
-  }
+    };
+  };
 
   const genToggle = (id: number) => {
     return () => {
@@ -27,8 +19,23 @@ export function TodoList() {
           task.id === id ? { ...task, isCompleted: !task.isCompleted } : task
         )
       );
-    }
-  }
+    };
+  };
+
+  const max = (arr: number[]) => {
+    return arr.reduce((acc, cur) => (acc > cur ? acc : cur), 0);
+  };
+
+  const onCreateTask = (body: string) => {
+    if (body === "") return;
+
+    const newTask: Task = {
+      id: max(tasks.map((task) => task.id)) + 1,
+      title: body,
+      isCompleted: false,
+    };
+    setTasks([...tasks, newTask]);
+  };
 
   return (
     <Center h="100vh">
@@ -45,12 +52,17 @@ export function TodoList() {
           TodoList
         </Text>
         <List.Root>
-            {tasks.map((task) => (
-                <TodoItem key={task.id} task={task} onClickDelete={genClickDelete(task.id)} onToggle={genToggle(task.id)} />
-            ))}
+          {tasks.map((task) => (
+            <TodoItem
+              key={task.id}
+              task={task}
+              onClickDelete={genClickDelete(task.id)}
+              onToggle={genToggle(task.id)}
+            />
+          ))}
         </List.Root>
         <HStack>
-          <Button onClick={onClickAdd}>追加</Button>
+          <CreateTaskDialog onCreateTask={onCreateTask} />
         </HStack>
       </VStack>
     </Center>
