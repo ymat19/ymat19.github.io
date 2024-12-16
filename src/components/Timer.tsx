@@ -16,7 +16,7 @@ export function Timer() {
   });
 
   return (
-    <Center h="100vh">
+    <Center h="95vh">
       <VStack
         w="80%"
         h="80%"

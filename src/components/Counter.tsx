@@ -5,7 +5,7 @@ export function Counter() {
   const [count, setCount] = useState(0);
 
   return (
-    <Center h="100vh">
+    <Center h="95vh">
       <VStack
         w="auto"
         h="auto"

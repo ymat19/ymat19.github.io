@@ -18,6 +18,7 @@ function App() {
             p="4"
             justify="space-around"
             align="center"
+            h={'5vh'}
           >
             <Link to="/" color="white">
               Home
@@ -40,7 +41,7 @@ function App() {
           </Flex>
 
           {/* 各ページを表示するエリア */}
-          <Box p="4">
+          <Box p="4" h={'95vh'}>
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/template" element={<Template />} />
