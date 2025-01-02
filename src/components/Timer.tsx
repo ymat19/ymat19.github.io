@@ -9,7 +9,13 @@ export function Timer() {
 
   useEffect(() => {
     const task = setInterval(() => {
-      setTimeLeft((time) => time - 1);
+      setTimeLeft((time) => { 
+        if(time > 0) {
+          return time - 1;
+        } else {
+          return 0;
+        }
+      });
     }, 1000);
 
     return () => {
