@@ -6,14 +6,16 @@ import { GrPowerReset } from "react-icons/gr";
 
 export function Timer() {
   const [timeLeft, setTimeLeft] = useState(0);
+  const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
+    console.log("isRunning", isRunning);
     const task = setInterval(() => {
       setTimeLeft((time) => { 
-        if(time > 0) {
+        if(isRunning && time > 0) {
           return time - 1;
         } else {
-          return 0;
+          return time;
         }
       });
     }, 1000);
@@ -21,11 +23,16 @@ export function Timer() {
     return () => {
       clearInterval(task);
     };
-  }, []);
+  }, [isRunning]);
 
   const OnStart = () => {
     setTimeLeft(10);
+    setIsRunning(true);
   };
+  
+  const OnPause = () => {
+    setIsRunning(!isRunning);
+  }
 
   return (
     <Center h="95vh">
@@ -43,7 +50,7 @@ export function Timer() {
         </Text>
         <HStack gap={"20px"}>
           <FaPlayCircle size={50} color="white" onClick={OnStart} />
-          <CiPause1 size={50} color="white" />
+          <CiPause1 size={50} color="white" onClick={OnPause} />
           <GrPowerReset size={50} color="white" />
         </HStack>
       </VStack>
