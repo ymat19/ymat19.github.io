@@ -5,14 +5,14 @@ import { CiPause1 } from "react-icons/ci";
 import { GrPowerReset } from "react-icons/gr";
 
 export function Timer() {
-  const [timeLeft, setTimeLeft] = useState(0);
+  const defaultTime = 10;
+  const [timeLeft, setTimeLeft] = useState(defaultTime);
   const [isRunning, setIsRunning] = useState(false);
 
   useEffect(() => {
-    console.log("isRunning", isRunning);
     const task = setInterval(() => {
-      setTimeLeft((time) => { 
-        if(isRunning && time > 0) {
+      setTimeLeft((time) => {
+        if (isRunning && time > 0) {
           return time - 1;
         } else {
           return time;
@@ -26,13 +26,18 @@ export function Timer() {
   }, [isRunning]);
 
   const OnStart = () => {
-    setTimeLeft(10);
     setIsRunning(true);
   };
-  
+
   const OnPause = () => {
     setIsRunning(!isRunning);
+  };
+  
+  const OnReset = () => {
+    setTimeLeft(defaultTime);
+    setIsRunning(false);
   }
+
 
   return (
     <Center h="95vh">
@@ -49,9 +54,12 @@ export function Timer() {
           {timeLeft}
         </Text>
         <HStack gap={"20px"}>
-          <FaPlayCircle size={50} color="white" onClick={OnStart} />
-          <CiPause1 size={50} color="white" onClick={OnPause} />
-          <GrPowerReset size={50} color="white" />
+          {isRunning ? (
+            <CiPause1 size={50} color="white" onClick={OnPause} />
+          ) : (
+            <FaPlayCircle size={50} color="white" onClick={OnStart} />
+          )}
+          <GrPowerReset size={50} color="white" onClick={OnReset} />
         </HStack>
       </VStack>
     </Center>
