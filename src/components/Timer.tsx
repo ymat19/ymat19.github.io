@@ -3,6 +3,11 @@ import { Center, VStack, Text, HStack } from "@chakra-ui/react";
 import { FaPlayCircle } from "react-icons/fa";
 import { CiPause1 } from "react-icons/ci";
 import { GrPowerReset } from "react-icons/gr";
+import {
+  NumberInputField,
+  NumberInputLabel,
+  NumberInputRoot,
+} from "@/components/ui/number-input";
 
 export function Timer() {
   const defaultTime = 10;
@@ -25,19 +30,10 @@ export function Timer() {
     };
   }, [isRunning]);
 
-  const OnStart = () => {
-    setIsRunning(true);
-  };
-
-  const OnPause = () => {
-    setIsRunning(!isRunning);
-  };
-  
   const OnReset = () => {
     setTimeLeft(defaultTime);
     setIsRunning(false);
-  }
-
+  };
 
   return (
     <Center h="95vh">
@@ -50,14 +46,30 @@ export function Timer() {
         borderRadius="10px"
         gap={"20px"}
       >
-        <Text fontSize="6xl" fontWeight="bold">
-          {timeLeft}
-        </Text>
+        <NumberInputRoot
+          size="lg"
+          defaultValue="10"
+          value={timeLeft.toString()}
+          onValueChange={(details) =>
+            timeLeft !== details.valueAsNumber &&
+            setTimeLeft(details.valueAsNumber)
+          }
+        >
+          <NumberInputField />
+        </NumberInputRoot>
         <HStack gap={"20px"}>
           {isRunning ? (
-            <CiPause1 size={50} color="white" onClick={OnPause} />
+            <CiPause1
+              size={50}
+              color="white"
+              onClick={() => setIsRunning(false)}
+            />
           ) : (
-            <FaPlayCircle size={50} color="white" onClick={OnStart} />
+            <FaPlayCircle
+              size={50}
+              color="white"
+              onClick={() => setIsRunning(true)}
+            />
           )}
           <GrPowerReset size={50} color="white" onClick={OnReset} />
         </HStack>
