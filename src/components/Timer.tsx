@@ -1,26 +1,32 @@
 import { useState, useEffect } from "react";
-import { Center, VStack, Text, HStack } from "@chakra-ui/react";
+import { Center, VStack, HStack } from "@chakra-ui/react";
 import { FaPlayCircle } from "react-icons/fa";
 import { CiPause1 } from "react-icons/ci";
 import { GrPowerReset } from "react-icons/gr";
 import {
   NumberInputField,
-  NumberInputLabel,
   NumberInputRoot,
 } from "@/components/ui/number-input";
+import Sound from "../assets/timer.mp3";
+import useSound from "use-sound";
 
 export function Timer() {
   const defaultTime = 10;
   const [timeLeft, setTimeLeft] = useState(defaultTime);
   const [isRunning, setIsRunning] = useState(false);
+  const [play] = useSound(Sound);
 
   useEffect(() => {
     const task = setInterval(() => {
       setTimeLeft((time) => {
-        if (isRunning && time > 0) {
-          return time - 1;
-        } else {
+        if (!isRunning) {
           return time;
+        } else if (time <= 1) {
+          play();
+          setIsRunning(false);
+          return 0;
+        } else {
+          return time - 1;
         }
       });
     }, 1000);
@@ -28,7 +34,7 @@ export function Timer() {
     return () => {
       clearInterval(task);
     };
-  }, [isRunning]);
+  }, [isRunning, play]);
 
   const OnReset = () => {
     setTimeLeft(defaultTime);
