@@ -6,6 +6,7 @@ import { Home } from './components/Home'
 import { Counter } from './components/Counter'
 import { TodoList } from './components/TodoList'
 import { Timer } from './components/Timer'
+import { Calculator } from './components/Calculator'
 
 function App() {
   return (
@@ -38,6 +39,9 @@ function App() {
             <Link to="/timer" color="white">
               Timer
             </Link>
+            <Link to="/calc" color="white">
+              Calculator
+            </Link>
           </Flex>
 
           {/* 各ページを表示するエリア */}
@@ -49,6 +53,7 @@ function App() {
               <Route path="/counter" element={<Counter />} />
               <Route path="/todo" element={<TodoList />} />
               <Route path="/timer" element={<Timer />} />
+              <Route path="/calc" element={<Calculator />} />
             </Routes>
           </Box>
         </Box>
