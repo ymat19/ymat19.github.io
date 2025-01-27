@@ -1,5 +1,6 @@
-import { Text, Button, HStack, Input } from "@chakra-ui/react";
+import { Center, VStack, Text, Button, HStack, Input } from "@chakra-ui/react";
 import React, { useState } from "react";
+
 export function Calculator() {
   const buttonsLabels: string[][] = [
     ["7", "8", "9", "÷"],
@@ -9,40 +10,50 @@ export function Calculator() {
   ];
 
   const [expression, setExpression] = useState<string>("");
-  const onClickDefault = (event: React.MouseEvent<HTMLButtonElement>) => setExpression(expression + (event.currentTarget?.textContent || ""));
+  const createValidExpression = (expression: string) => {
+    return expression.replace(/×/g, "*").replace(/÷/g, "/");
+  };
+
+  const onClick = (event: React.MouseEvent<HTMLButtonElement>) => {
+    const label = event.currentTarget?.textContent;
+    if (label === "=") {
+      try {
+        if (expression)
+          setExpression(eval(createValidExpression(expression)).toString());
+      } catch (e) {
+        alert(e);
+      }
+    } else if (label === "AC") {
+      setExpression("");
+    } else {
+      setExpression(expression + label);
+    }
+  };
 
   return (
-    <>
-      <Text>Calculator</Text>
-      <Input defaultValue={expression} placeholder="" />
-      {buttonsLabels.map((labels) => (
-        <HStack key={labels.join()} gap={"4px"} margin={"4px"}>
-          {labels.map((label) => (
-            <CalcButton
-              key={label}
-              label={label}
-              onClick={label === "AC" ? (_: React.MouseEvent<HTMLButtonElement>) => setExpression("") : onClickDefault}
-            />
-          ))}
-          <br />
-        </HStack>
-      ))}
-    </>
+    <Center h="95vh">
+      <VStack>
+        <Text>Calculator</Text>
+        <Input defaultValue={expression} placeholder="" />
+        {buttonsLabels.map((labels) => (
+          <HStack
+            key={labels.join()}
+            justify={"space-between"}
+            margin={"4px 0px"}
+          >
+            {labels.map((label) => (
+              <Button
+                key={label}
+                minWidth={"64px"}
+                onClick={onClick}
+                variant={"outline"}
+              >
+                {label}
+              </Button>
+            ))}
+          </HStack>
+        ))}
+      </VStack>
+    </Center>
   );
 }
-
-interface CalcButtonProps {
-  label: string;
-  onClick: (event: React.MouseEvent<HTMLButtonElement>) => void;
-}
-
-const CalcButton: React.FC<CalcButtonProps> = ({
-  label,
-  onClick,
-}) => {
-  return (
-    <Button minWidth={"64px"} onClick={onClick}>
-      {label}
-    </Button>
-  );
-};
