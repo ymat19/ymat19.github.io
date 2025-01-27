@@ -9,12 +9,12 @@ export function Calculator() {
   ];
 
   const [expression, setExpression] = useState<string>("");
-  const onClickDefault = (event: React.MouseEvent<HTMLButtonElement>) => setExpression((value) => value + (event.currentTarget?.textContent || ""));
+  const onClickDefault = (event: React.MouseEvent<HTMLButtonElement>) => setExpression(expression + (event.currentTarget?.textContent || ""));
 
   return (
     <>
       <Text>Calculator</Text>
-      <Input value={expression} placeholder="" />
+      <Input defaultValue={expression} placeholder="" />
       {buttonsLabels.map((labels) => (
         <HStack key={labels.join()} gap={"4px"} margin={"4px"}>
           {labels.map((label) => (
