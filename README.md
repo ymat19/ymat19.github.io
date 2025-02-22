@@ -20,3 +20,5 @@ interface Status {
   - type
     - ユニオン型, 交差型が使える
 
+- Range風
+  - `[...Array(3).keys()]`
