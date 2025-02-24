@@ -1,3 +1,5 @@
+[![CD](https://github.com/ymat19/ymat19.github.io/actions/workflows/main.yml/badge.svg)](https://github.com/ymat19/ymat19.github.io/actions/workflows/main.yml)
+
 # お勉強用
 
 ## メモ
