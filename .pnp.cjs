@@ -44,7 +44,7 @@ const RAW_RUNTIME_STATE =
           ["react-router-dom", "virtual:708cd03a8b3728ac543dd12bdd077711665d078709a67ea1adf1337b26e2816a846f5f8eb0c4d7cf5b58202699a9346a54ebff6c204bcf5045683c9da423bf7c#npm:6.28.0"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"],\
           ["typescript-eslint", "virtual:708cd03a8b3728ac543dd12bdd077711665d078709a67ea1adf1337b26e2816a846f5f8eb0c4d7cf5b58202699a9346a54ebff6c204bcf5045683c9da423bf7c#npm:8.14.0"],\
-          ["use-sound", "virtual:708cd03a8b3728ac543dd12bdd077711665d078709a67ea1adf1337b26e2816a846f5f8eb0c4d7cf5b58202699a9346a54ebff6c204bcf5045683c9da423bf7c#npm:4.0.3"],\
+          ["use-sound", "virtual:708cd03a8b3728ac543dd12bdd077711665d078709a67ea1adf1337b26e2816a846f5f8eb0c4d7cf5b58202699a9346a54ebff6c204bcf5045683c9da423bf7c#npm:5.0.0"],\
           ["vite", "virtual:708cd03a8b3728ac543dd12bdd077711665d078709a67ea1adf1337b26e2816a846f5f8eb0c4d7cf5b58202699a9346a54ebff6c204bcf5045683c9da423bf7c#npm:5.4.14"],\
           ["vite-tsconfig-paths", "virtual:708cd03a8b3728ac543dd12bdd077711665d078709a67ea1adf1337b26e2816a846f5f8eb0c4d7cf5b58202699a9346a54ebff6c204bcf5045683c9da423bf7c#npm:5.1.2"]\
         ],\
@@ -3612,7 +3612,7 @@ const RAW_RUNTIME_STATE =
           ["react-router-dom", "virtual:708cd03a8b3728ac543dd12bdd077711665d078709a67ea1adf1337b26e2816a846f5f8eb0c4d7cf5b58202699a9346a54ebff6c204bcf5045683c9da423bf7c#npm:6.28.0"],\
           ["typescript", "patch:typescript@npm%3A5.6.3#optional!builtin<compat/typescript>::version=5.6.3&hash=8c6c40"],\
           ["typescript-eslint", "virtual:708cd03a8b3728ac543dd12bdd077711665d078709a67ea1adf1337b26e2816a846f5f8eb0c4d7cf5b58202699a9346a54ebff6c204bcf5045683c9da423bf7c#npm:8.14.0"],\
-          ["use-sound", "virtual:708cd03a8b3728ac543dd12bdd077711665d078709a67ea1adf1337b26e2816a846f5f8eb0c4d7cf5b58202699a9346a54ebff6c204bcf5045683c9da423bf7c#npm:4.0.3"],\
+          ["use-sound", "virtual:708cd03a8b3728ac543dd12bdd077711665d078709a67ea1adf1337b26e2816a846f5f8eb0c4d7cf5b58202699a9346a54ebff6c204bcf5045683c9da423bf7c#npm:5.0.0"],\
           ["vite", "virtual:708cd03a8b3728ac543dd12bdd077711665d078709a67ea1adf1337b26e2816a846f5f8eb0c4d7cf5b58202699a9346a54ebff6c204bcf5045683c9da423bf7c#npm:5.4.14"],\
           ["vite-tsconfig-paths", "virtual:708cd03a8b3728ac543dd12bdd077711665d078709a67ea1adf1337b26e2816a846f5f8eb0c4d7cf5b58202699a9346a54ebff6c204bcf5045683c9da423bf7c#npm:5.1.2"]\
         ],\
@@ -5089,17 +5089,17 @@ const RAW_RUNTIME_STATE =
       }]\
     ]],\
     ["use-sound", [\
-      ["npm:4.0.3", {\
-        "packageLocation": "../../.yarn/berry/cache/use-sound-npm-4.0.3-60efdcc99d-10c0.zip/node_modules/use-sound/",\
+      ["npm:5.0.0", {\
+        "packageLocation": "../../.yarn/berry/cache/use-sound-npm-5.0.0-b7995a5cb5-10c0.zip/node_modules/use-sound/",\
         "packageDependencies": [\
-          ["use-sound", "npm:4.0.3"]\
+          ["use-sound", "npm:5.0.0"]\
         ],\
         "linkType": "SOFT"\
       }],\
-      ["virtual:708cd03a8b3728ac543dd12bdd077711665d078709a67ea1adf1337b26e2816a846f5f8eb0c4d7cf5b58202699a9346a54ebff6c204bcf5045683c9da423bf7c#npm:4.0.3", {\
-        "packageLocation": "./.yarn/__virtual__/use-sound-virtual-224d0b6b24/3/.yarn/berry/cache/use-sound-npm-4.0.3-60efdcc99d-10c0.zip/node_modules/use-sound/",\
+      ["virtual:708cd03a8b3728ac543dd12bdd077711665d078709a67ea1adf1337b26e2816a846f5f8eb0c4d7cf5b58202699a9346a54ebff6c204bcf5045683c9da423bf7c#npm:5.0.0", {\
+        "packageLocation": "./.yarn/__virtual__/use-sound-virtual-3def82b729/3/.yarn/berry/cache/use-sound-npm-5.0.0-b7995a5cb5-10c0.zip/node_modules/use-sound/",\
         "packageDependencies": [\
-          ["use-sound", "virtual:708cd03a8b3728ac543dd12bdd077711665d078709a67ea1adf1337b26e2816a846f5f8eb0c4d7cf5b58202699a9346a54ebff6c204bcf5045683c9da423bf7c#npm:4.0.3"],\
+          ["use-sound", "virtual:708cd03a8b3728ac543dd12bdd077711665d078709a67ea1adf1337b26e2816a846f5f8eb0c4d7cf5b58202699a9346a54ebff6c204bcf5045683c9da423bf7c#npm:5.0.0"],\
           ["@types/react", "npm:18.3.12"],\
           ["howler", "npm:2.2.4"],\
           ["react", "npm:18.3.1"]\
