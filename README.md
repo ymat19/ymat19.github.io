@@ -24,3 +24,7 @@ interface Status {
 
 - Range風
   - `[...Array(3).keys()]`
+
+- components/uiの更新
+  - ChakraUIのコンパイル通らなくなったりしたら↓をやる
+  - `npx @chakra-ui/cli snippet add --force`
