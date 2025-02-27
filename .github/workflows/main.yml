@@ -1,10 +1,17 @@
 # Simple workflow for deploying static content to GitHub Pages
-name: Deploy Pages
+name: CD
 
 on:
   # Runs on pushes targeting the default branch
   push:
     branches: ['main']
+
+  pull_request:
+    types:
+      - opened
+      - reopened
+      - synchronize
+      - ready_for_review
 
   # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
@@ -21,7 +28,7 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-for-pages:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -45,7 +52,7 @@ jobs:
           path: './dist'
 
   deploy:
-    needs: build-for-pages
+    needs: build
     runs-on: ubuntu-latest
     if: github.ref == 'refs/heads/main'
     environment:
